@@ -6,6 +6,8 @@ pygame.init()
 pygame.mixer.init()
 pygame.font.init()
 
+air = 0
+
 def drawGame(screen, bg):
     screen.blit(bg, (0, 0))
     pygame.display.update()
@@ -24,9 +26,15 @@ class Sprite:
         self.background = pygame.image.load("../assets/gamescreen.png")
         self.gameover = pygame.image.load("../assets/game_over.png")
 
-    def render(self, air, screen):
+    def render(self, screen):
+        #gets the global variable air
+        global air
+        
         # screen.blit(pygame.transform.scale(self.hellbender, (426, 90)), (100, -2400))
-
+        print('-------------------------------')
+        print('PlayerX:', self.x)
+        print('PlayerY:', self.y)
+        
         if self.gender == 0:  # Female Diver
             image = self.diverFemale
         else:  # Male Diver
@@ -62,20 +70,40 @@ class Sprite:
             screen.blit(pygame.transform.scale(self.bubble, (100, 100)), (1600, 900))
             screen.blit(pygame.transform.scale(self.bubble, (100, 100)), (1700, 900))
             screen.blit(pygame.transform.scale(self.bubble, (100, 100)), (1800, 900))
-
+            
+            #makes hellbender appear by the player's head when player is in these coordinated
+        if (self.x > -950 and self.x < -750 and self.y > -3825 and self.y < -3650):
+            #below the the right hook of the starter boat near the top rocks
+            #level with the center of the wheel / look for the bleh's
+            screen.blit(pygame.transform.scale(self.hellbender, (200,100)), (1200,300))
+            print('Bleh')
+        
+    #BEWARE THE HOOKS! THESE KILL THE PLAYER!!!!!!!!!!!!!! 
+        #(In order from left most hook to right most hook)
+        if (self.x > -800 and self.x < -125 and self.y > -2350 and self.y < -2050):
+            air = 5050
+        if (self.x > -1200 and self.x < -525 and self.y > -3125 and self.y < -2850):
+            air = 5050
+        if (self.x > -4575 and self.x < -3900 and self.y > -2750 and self.y < -2475):
+            air = 5050
+        #This one has the door
+        if (self.x > -5200 and self.x < -4525 and self.y > -2200 and self.y < -1925):
+            air = 5050
+            
 def game(screen, playerGender):
     inventoryItems = [0, 0, 0, 0, 0, 0, 0]
     clock = pygame.time.Clock()
     playerX, playerY = 0, 0
     player = Sprite(-800, -300, playerGender)
     gameContinue = True
+    
+    #make air a global value to be used in other functions
+    global air 
     air = 0
 
     while gameContinue:
         for event in pygame.event.get():
-            print('-------------------------------')
-            print('PlayerX:', player.x)
-            print('PlayerY:', player.y)
+            
 
             keys = pygame.key.get_pressed()
 
@@ -106,12 +134,12 @@ def game(screen, playerGender):
             if (player.y > -300):
                 air = 0
             else:
-                air += 20
+                air += 50
 
         player.x += playerX
         player.y += playerY
         determineInventory(player.x, player.y, inventoryItems)
-        player.render(air, screen)
+        player.render(screen)
         if(air > 5000):
             return
 
