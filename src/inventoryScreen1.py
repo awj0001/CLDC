@@ -4,7 +4,7 @@ pygame.init()
 pygame.mixer.init()
 pygame.font.init()
 
-def drawInventory(screen, bg, inventoryItems):
+def drawInventory1(screen, bg, inventoryItems):
     screen.blit(bg, (0, 0))
     pygame.display.update()
 
@@ -34,19 +34,19 @@ def drawInventory(screen, bg, inventoryItems):
         screen.blit(barrel, (345, 420))
     pygame.display.update()
 
-def inventory(screen, inventoryItems):
+def inventory1(screen, inventoryItems):
     bg = pygame.image.load('../assets/Inventory.png')
     bg = pygame.transform.scale(bg, (1920, 1080))
     cont = 1
 
     while cont == 1:
         for event in pygame.event.get():
-            drawInventory(screen, bg, inventoryItems)
+            drawInventory1(screen, bg, inventoryItems)
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_i:
                     cont = 0
 
-def determineInventory(playerX, playerY, inventoryItems):
+def determineInventory1(playerX, playerY, inventoryItems):
     if(playerX > -5000 and playerX < -4400 and playerY > -2500 and playerY < -1850):
         inventoryItems[0] = 1
     if (playerX > -450 and playerX < 100 and playerY > -4200 and playerY < -3800):
