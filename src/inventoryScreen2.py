@@ -55,7 +55,7 @@ def determineInventory2(playerX, playerY, inventoryItems):
         inventoryItems[2] = 1
     if (playerX > -5900 and playerX < -5550 and playerY > -4000 and playerY < -3700):
         inventoryItems[3] = 1
-    if (playerX > 150 and playerX < 425 and playerY > -4150 and playerY < -3775):
+    if (playerX > -300 and playerX < 100 and playerY > -4100 and playerY < -3700):
         inventoryItems[4] = 1
     if (playerX > -3500 and playerX < -2800 and playerY > -4100 and playerY < -3600):
         inventoryItems[5] = 1

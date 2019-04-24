@@ -25,9 +25,9 @@ def main():
 
         keepPlaying = 1
         while (keepPlaying == 1):
-            if (width == 1920 and height == 1080):
+            if (width == 1920 and height == 1080):      #1920 x 1080
                 game1(screen, playerGender)
-            if (width == 1600 and height == 900):
+            else:                                       #1600 x 900 (everything else)
                 game2(screen, playerGender)
 
             choice = gameOver(screen, width, height)

@@ -51,8 +51,7 @@ def title(screen, width, height):
         y_min, y_max = 700, 800
         sign_width, sign_height = 662, 435
         duck1, duck2, duck3 = 500, 505, 550
-
-    if (width == 1600 and height == 900):
+    else:
         textX, textY = 720, 650
         y_min, y_max = 600, 700
         sign_width, sign_height = 550, 370
@@ -120,7 +119,4 @@ def title(screen, width, height):
         if (textY == y_min and down == 0):
             down = 1
 
-        if (width == 1920 and height == 1080):
-            drawTitle(screen, textX, textY, bg, sign, mallard_1, mallard_2, mallard_3, diver, promptFont)
-        if (width == 1600 and height == 900):
-            drawTitle(screen, textX, textY, bg, sign, mallard_1, mallard_2, mallard_3, diver, promptFont)
+        drawTitle(screen, textX, textY, bg, sign, mallard_1, mallard_2, mallard_3, diver, promptFont)

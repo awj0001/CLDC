@@ -25,7 +25,7 @@ def gameOver(screen, width, height):
         x1_min, x1_max = 180, 560
         x2_min, x2_max = 810, 1096
         x3_min, x3_max = 1376, 1750
-    if (width == 1600 and height == 900):
+    else:
         y_min, y_max = 650, 730
         x1_min, x1_max = 150, 460
         x2_min, x2_max = 670, 920
@@ -39,7 +39,6 @@ def gameOver(screen, width, height):
                 pygame.quit()
 
             x, y = pygame.mouse.get_pos()
-            print(x, y)
 
             if(y > y_min and y < y_max):
                 if(x > x1_min and x < x1_max):
