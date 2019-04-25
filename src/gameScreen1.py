@@ -127,23 +127,23 @@ class Sprite:
                 leftX -= 45
                 
               
-#         effect = pygame.mixer.Sound('../assets/hooked.mp3')
+        effect = pygame.mixer.Sound('../assets/hookednt.wav')
 
         
         # BEWARE THE HOOKS! THESE KILL THE PLAYER!!!!!!!!!!!!!!
         # (In order from left most hook to right most hook)
         if (self.x > -800 and self.x < -125 and self.y > -2350 and self.y < -2050):
-#             effect.play()
+            effect.play()
 #             effect.stop()
             air = 5050
             
         if (self.x > -1200 and self.x < -525 and self.y > -3125 and self.y < -2850):
-#             effect.play()
+            effect.play()
 #             effect.stop()
             air = 5050
             
         if (self.x > -4575 and self.x < -3900 and self.y > -2750 and self.y < -2475):
-#             effect.play()
+            effect.play()
 #             effect.stop()
             air = 5050
             

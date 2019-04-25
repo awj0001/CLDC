@@ -47,15 +47,33 @@ def inventory1(screen, inventoryItems):
                     cont = 0
 
 def determineInventory1(playerX, playerY, inventoryItems):
+    effect = pygame.mixer.Sound('../assets/gotcha.wav')
     if(playerX > -5000 and playerX < -4400 and playerY > -2500 and playerY < -1850):
+        if(inventoryItems[0] != 1):
+            effect.play()
         inventoryItems[0] = 1
+        
     if (playerX > -450 and playerX < 100 and playerY > -4200 and playerY < -3700):
+        if(inventoryItems[1] != 1):
+            effect.play()
         inventoryItems[1] = 1
+        
     if (playerX > -2075 and playerX < -1250 and playerY > -4025 and playerY < -3450):
+        if(inventoryItems[2] != 1):
+            effect.play()
         inventoryItems[2] = 1
+        
     if (playerX > -6275 and playerX < -5600 and playerY > -4150 and playerY < -3600):
+        if(inventoryItems[3] != 1):
+            effect.play()
         inventoryItems[3] = 1
+        
     if (playerX > -300 and playerX < -100 and playerY > -4125 and playerY < -3650):
+        if(inventoryItems[4] != 1):
+            effect.play()
         inventoryItems[4] = 1
     if (playerX > -3500 and playerX < -2750 and playerY > -4200 and playerY < -3475):
+        if(inventoryItems[5] != 1):
+            effect.play()
         inventoryItems[5] = 1
+        
